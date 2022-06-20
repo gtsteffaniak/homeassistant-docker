@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  ha_core:
+    container_name: homeassistant
+    image: homeassistant/home-assistant
+    ports:
+      - "8123:8123"
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    volumes:
+      - ./data:/data
+      - ./config:/config
+      - ./scripts:/scripts
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+#    devices:
+#    - /dev/ttyUSB0:/dev/ttyUSB0
+#    - /dev/ttyUSB1:/dev/ttyUSB1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8123"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
