@@ -4,12 +4,12 @@ This is a simple docker-compose file to get started with home assistant.
 
 ## How to run
 
-Prereq:
+**Prereqs**:
 
  * docker
  * docker-compose
 
-starting the program
+**starting the program**:
 
  1) Either clone or simply create copy file `docker-compose.yml` in an empty
     directory. The docker-compose will create sub folders after first run.
@@ -21,7 +21,11 @@ starting the program
     by the container every time you start it. This includes DB files.
  1) Run permantently even after reboot with `docker-compose up -d`
 
-## Setting up home assistant
+![](https://i.imgur.com/56XFCAo.png)
+
+## Setting up homeassistant
+
+**Some getting-started advice:**
 
  * Typically, the first thing to do is to add any smart devices.
    * go to `configuration` > `Devices & Services`, then `Add Integration`
@@ -31,3 +35,5 @@ starting the program
  * The fun part : create automations!
    * go to `configuration` > `Automations & Scenes`, then `Add Automation`
    * create a blank automation, allows you to add triggers and events.
+
+![](https://i.imgur.com/FxSiHII.png)
